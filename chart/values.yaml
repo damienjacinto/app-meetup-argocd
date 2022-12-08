@@ -1,0 +1,14 @@
+app:
+  replicas: 1
+  name: hello
+image: {}
+service:
+  port: 80
+  internalPort: 80
+  scheme: http
+healthcheck:
+  enabled: false
+hpa:
+  enabled: false
+container:
+  command: ""
