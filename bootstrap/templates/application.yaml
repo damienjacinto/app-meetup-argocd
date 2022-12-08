@@ -1,0 +1,30 @@
+{{- range $path, $bytes  := $.Files.Glob "apps/**.yaml" }}
+  {{- $file := base $path}}
+  {{- $values := $.Files.Get $path | fromYaml  }}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ $values.app.name }}
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: {{ $values.app.namespace }}
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: chart
+    repoURL: https://github.com/damienjacinto/app-meetup-argocd
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+      - values.yaml
+      - ../bootstrap/apps/{{ $file }}
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
+{{- end }}
