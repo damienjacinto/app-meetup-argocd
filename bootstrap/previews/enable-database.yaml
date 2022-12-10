@@ -1,0 +1,5 @@
+app:
+  name: enable-database
+  namespace: enable-database
+image:
+  repository: app-meetup-crossplane
