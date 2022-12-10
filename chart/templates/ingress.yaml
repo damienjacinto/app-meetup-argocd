@@ -15,5 +15,6 @@ spec:
     services:
     - kind: Service
       name: {{ .Values.app.name }}
+      port: {{ .Values.service.port }}
   tls:
     secretName: {{ .Values.app.name }}-certificate
