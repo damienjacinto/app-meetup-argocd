@@ -7,5 +7,5 @@ spec:
     - "{{ .Values.app.name }}.{{ .Values.domain }}"
   issuerRef:
     kind: ClusterIssuer
-    name: ${issuer_name}
+    name: {{{ Values.clusterIssuerName }}}
   secretName: {{ .Values.app.name }}-certificate
