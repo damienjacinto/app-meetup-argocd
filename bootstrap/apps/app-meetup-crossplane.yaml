@@ -3,4 +3,4 @@ app:
   namespace: app-meetup-crossplane
 image:
   repository: app-meetup-crossplane
-  shasum: 036995d9d9a7591db9b1500d633b072395df0be322a3ca727a258538f1b6a841
+  tag: v1.0.0
