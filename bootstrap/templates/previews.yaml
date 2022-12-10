@@ -14,7 +14,7 @@ metadata:
     argocd-image-updater.argoproj.io/image-list: {{ $values.app.name }}={{ $.Values.image.repositoryBase }}/{{ $values.image.repository }}
     argocd-image-updater.argoproj.io/{{ $values.app.name }}.update-strategy: latest
     argocd-image-updater.argoproj.io/{{ $values.app.name }}.ignore-tags: "v*"
-    argocd-image-updater.argoproj.io/<image_name>.allow-tags: regexp:{{ $values.app.name }}
+    argocd-image-updater.argoproj.io/{{ $values.app.name }}.allow-tags: regexp:{{ $values.app.name }}
 spec:
   destination:
     namespace: {{ $values.app.namespace }}
