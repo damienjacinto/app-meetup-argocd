@@ -3,3 +3,4 @@ app:
   namespace: ${PREVIEW}
 image:
   repository: ${REPOSITORY}
+  shasum: ${SHA}
