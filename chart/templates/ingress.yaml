@@ -2,6 +2,8 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: {{ .Values.app.name }}
+  annotations:
+    link.argocd.argoproj.io/external-link: https://{{ .Values.app.name }}.{{ .Values.domain }}
   labels:
     {{- include "meetup.labels" . | nindent 4 }}
 spec:
@@ -9,7 +11,7 @@ spec:
   - websecure
   routes:
   - kind: Rule
-    match: Host(`traefik.meetup-peaks.ddns.net`)
+    match: Host(`{{ .Values.app.name }}.{{ .Values.domain }}`)
     services:
     - kind: Service
       name: {{ .Values.app.name }}
