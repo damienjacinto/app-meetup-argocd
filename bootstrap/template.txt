@@ -1,0 +1,5 @@
+app:
+  name: ${PREVIEW}
+  namespace: ${PREVIEW}
+image:
+  repository: ${REPOSITORY}
