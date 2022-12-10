@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ .Values.app.name }}-certificate
+spec:
+  dnsNames:
+    - "{{ .Values.app.name }}.{{ .Values.domain }}"
+  issuerRef:
+    kind: ClusterIssuer
+    name: ${issuer_name}
+  secretName: {{ .Values.app.name }}-certificate
