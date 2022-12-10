@@ -12,3 +12,5 @@ hpa:
   enabled: false
 container:
   command: ""
+image:
+  repositoryBase: 069987675187.dkr.ecr.eu-central-1.amazonaws.com

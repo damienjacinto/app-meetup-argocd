@@ -43,7 +43,7 @@ spec:
     {{- end }}
       containers:
         - name: {{ .Values.app.name }}
-          image: "{{ .Values.image.repositoryBase }}/{{ .Values.image.repository }}@{{ .Values.image.sha }}"
+          image: "{{ .Values.image.repositoryBase }}/{{ .Values.image.repository }}{{- if .Values.image.shasum }}@{{ .Values.image.shasum }}{{- else }}:{{ .Values.image.tag }}{{- end }}"
           imagePullPolicy: {{ default "IfNotPresent" .Values.image.pullPolicy }}
           # custom entrypoint
         {{- if .Values.container.command }}
