@@ -1,0 +1,6 @@
+app:
+  name: change-date
+  namespace: change-date
+image:
+  repository: app-meetup-crossplane
+  shasum: 25ed296115edc3ef6908ef4f17b81ec77788030d72a202ba64cfc7b52974dccb
