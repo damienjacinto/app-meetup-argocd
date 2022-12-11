@@ -1,6 +1,0 @@
-app:
-  name: enable-database
-  namespace: enable-database
-image:
-  repository: app-meetup-crossplane
-  shasum: 8619c20423bc9259be185ca2c4ac96aee0b5fc8b15b63d1a91c854c4e139ce1e
