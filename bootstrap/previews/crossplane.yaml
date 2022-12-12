@@ -3,5 +3,4 @@ app:
   namespace: crossplane
 image:
   repository: app-meetup-crossplane
-  tag: crossplane-06f800e
-postgresDatabase: true
+  tag: crossplane-2e54463

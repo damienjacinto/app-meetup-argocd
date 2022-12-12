@@ -14,9 +14,9 @@ spec:
     deletionProtection: false
     dbSubnetGroupNameRef:
       name: postgres-dbsubnet-group
-    enableIAMDatabaseAuthentication: true
+    enableIAMDatabaseAuthentication: false
     engine: postgres
-    engineVersion: "14"
+    engineVersion: "14.3"
     masterUsername: "master"
     multiAZ: false
     publiclyAccessible: false
@@ -27,8 +27,8 @@ spec:
     vpcSecurityGroupIDRefs:
     - name: postgres-security-group
   writeConnectionSecretToRef:
-    name: postgres
-    namespace: {{ .Release.Namespace }}
+    name: {{ .Values.app.name }}-postgres
+    namespace: {{ .Values.image.repository }}
   providerConfigRef:
     name: aws-provider
 {{- end }}
