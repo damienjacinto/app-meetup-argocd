@@ -16,3 +16,4 @@ image:
   repositoryBase: 069987675187.dkr.ecr.eu-central-1.amazonaws.com
 domain: "meetup-peaks.ddns.net"
 clusterIssuerName: letsencrypt
+postgresDatabase: false
