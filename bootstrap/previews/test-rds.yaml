@@ -1,0 +1,6 @@
+app:
+  name: test-rds
+  namespace: test-rds
+image:
+  repository: app-meetup-crossplane
+  tag: test-rds-4bb5509
