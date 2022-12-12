@@ -53,9 +53,38 @@ spec:
           args: {{ .Values.container.args }}
         {{- end }}
           env:
+            {{- if .Values.postgresDatabase }}
+            - name: DATABASE_ENABLE
+              value: "true"
+            - name: DATABASE_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.app.name }}-postgres
+                  key: port
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.app.name }}-postgres
+                  key: password
+            - name: DATABASE_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.app.name }}-postgres
+                  key: endpoint
+            - name: DATABASE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.app.name }}-postgres
+                  key: username
+            {{- end }}
             {{- with .Values.additional_env }}
             {{- toYaml . | nindent 12 }}
             {{- end }}
+          {{- if .Values.postgresDatabase }}
+          envFrom:
+            - secretRef:
+                name: {{ .Values.app.name }}-postgres
+          {{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.service.internalPort }}
