@@ -1,0 +1,34 @@
+{{- if .Values.postgresDatabase }}
+apiVersion: database.aws.crossplane.io/v1beta1
+kind: RDSInstance
+metadata:
+  name: {{ .Values.app.name }}
+spec:
+  forProvider:
+    allocatedStorage: 20
+    allowMajorVersionUpgrade: false
+    applyModificationsImmediately: true
+    autoMinorVersionUpgrade: true
+    backupRetentionPeriod: 0
+    dbInstanceClass: db.t3.small
+    deletionProtection: false
+    dbSubnetGroupNameRef:
+      name: postgres-dbsubnet-group
+    enableIAMDatabaseAuthentication: true
+    engine: postgres
+    engineVersion: "14"
+    masterUsername: "master"
+    multiAZ: false
+    publiclyAccessible: false
+    region: eu-central-1
+    skipFinalSnapshotBeforeDeletion: true
+    storageType: gp2
+    storageEncrypted: false
+    vpcSecurityGroupIDRefs:
+    - name: postgres-security-group
+  writeConnectionSecretToRef:
+    name: postgres
+    namespace: {{ .Release.Namespace }}
+  providerConfigRef:
+    name: aws-provider
+{{- end }}
