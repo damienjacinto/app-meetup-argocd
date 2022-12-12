@@ -27,7 +27,7 @@ spec:
     vpcSecurityGroupIDRefs:
     - name: postgres-security-group
   writeConnectionSecretToRef:
-    name: postgres
+    name: {{ .Values.app.name }}-postgres
     namespace: {{ .Values.image.repository }}
   providerConfigRef:
     name: aws-provider
