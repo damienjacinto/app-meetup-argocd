@@ -28,7 +28,7 @@ spec:
     - name: postgres-security-group
   writeConnectionSecretToRef:
     name: {{ .Values.app.name }}-postgres
-    namespace: {{ .Values.image.repository }}
+    namespace: {{ .Values.app.name }}
   providerConfigRef:
     name: aws-provider
 {{- end }}
