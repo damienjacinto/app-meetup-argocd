@@ -1,0 +1,7 @@
+app:
+  name: add-rds
+  namespace: add-rds
+image:
+  repository: app-meetup-crossplane
+  tag: add-rds-f671a23
+postgresDatabase: true
