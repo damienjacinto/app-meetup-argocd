@@ -1,0 +1,6 @@
+app:
+  name: update-to2022
+  namespace: update-to2022
+image:
+  repository: app-meetup-crossplane
+  tag: update-to2022-3d54343
