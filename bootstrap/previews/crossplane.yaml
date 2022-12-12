@@ -1,0 +1,6 @@
+app:
+  name: crossplane
+  namespace: crossplane
+image:
+  repository: app-meetup-crossplane
+  tag: crossplane-06f800e
